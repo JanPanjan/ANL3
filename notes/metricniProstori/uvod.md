@@ -25,7 +25,7 @@ $\delta > 0$, da je $|f(x_{1},x_{2})-f(a_{1}, a_{2})| < \epsilon$ za vsak par
 $(x_{1}, x_{2}) \in D$, ki ustreza pogoju
 
 $$
-\sqrt((x_{1} + a_{1})^{2} + (x_{2} - a_{2})^{2}) \qquad \text{(1.3)}
+\sqrt{ ((x_{1} + a_{1})^{2} + (x_{2} - a_{2})^{2}) } \qquad \text{(1.3)}
 $$
 
 <br>
