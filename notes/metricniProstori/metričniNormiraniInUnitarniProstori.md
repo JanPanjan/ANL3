@@ -19,15 +19,15 @@ $$
 <br>
 
 Množica vseh urejenih parov $(x,y) \in M$ imenujemo kartezični produkt množice
-$M$ in jo označujemo z $M×M$. Metrika $d$ na $M$ je torej preslikava 
-$d: M × M \mapsto \mathbb{R}$ Sliko para$(x,y)$, torej $d(x,y)$, bomo imenovali 
+$M$ in jo označujemo z $M×M$. Metrika $d$ na $M$ je torej preslikava
+$d: M × M \mapsto \mathbb{R}$ Sliko para$(x,y)$, torej $d(x,y)$, bomo imenovali
 **razdalja** med elementoma $x$ in $y$.
 
 <br>
 
 (Ne)enakost (2.1.4) imenujemo **trikotniška neenakost**, ki pove, da je vsaka
 stranica v trikotniku krajša od vsote drugih dveh. Iz nje lahko izpeljemo
-tudi neenakost preko lastnosti (2.1.3)
+tudi neenakost preko lastnosti $(3)$
 
 $$
 | d(x, z) - d(y, z) | \leq d(x, y)
@@ -38,7 +38,7 @@ $$
 ## (2.4) Definicija metričnega prostora
 
 (Neprazno) množico $M$ skupaj z (izbrano) metriko $d$ na $M$ (torej par $(M,d)$ )
-imenujemo **metrični prostor**. Če vzamemo neko drugo metriko $d'$, je potem 
+imenujemo **metrični prostor**. Če vzamemo neko drugo metriko $d'$, je potem
 $(M,d')$ nek drug metrični prostor.
 
 <br>
@@ -71,10 +71,10 @@ d(x,y) = d(0, y-x)
 \end{align}
 $$
 
-kjer $0$ označuje **ničelni vektor**. Lastnost (2.5.8) opisuje razdaljo nekega
+kjer $0$ označuje **ničelni vektor**. Lastnost $(8)$ opisuje razdaljo nekega
 vektorja od točke 0, ki jo bomo označevali z $|| x ||$ (kjer je $x$ nek vektor)
 in jo imenovali **norma**  vektorja. Funkcijo $x \mapsto ||x|| = d(0,x)$ lahko
-preko (2.5.8) zapišemo tudi kot $(x,y) \mapsto d(x,y)$, ta pa mora zadostovati
+preko $(8)$ zapišemo tudi kot $(x,y) \mapsto d(x,y)$, ta pa mora zadostovati
 nekaterim lastnostim.
 
 <br>
