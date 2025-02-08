@@ -47,7 +47,7 @@ z običajno metriko, definirana:
 
 > $d(x,y) = |y-x|$ za $x,y \in \mathbb{R}$
 >
-> $d(x,y) = \sqrt((y_1 - y_2) + (x_1 - x_2))$ za $(x_1,x_2),(y_1,y_2) \in \mathbb{R}^2$
+> $d(x,y) = \sqrt{(y_1 - y_2) + (x_1 - x_2)}$ za $(x_1,x_2),(y_1,y_2) \in \mathbb{R}^2$
 >
 > podobno za $\mathbb{R}^3$ ...
 
@@ -88,11 +88,11 @@ dokaz).
 Torej *vsak normiran prostor je metrični prostor*. Prav tako so zgoraj omenjeni prostori $\mathbb{R}$,
 $\mathbb{R}^2$, $\mathbb{R}^3$ tudi normirani prostori. Norme v njih so definirane tako:
 
-> $||x|| = |x|$
+> $||x|| = \| x \|$
 >
-> $||x|| = \sqrt(x_1^2 + x_2^2)$
+> $||x|| = \sqrt{x_1^2+x_2^2}$
 >
-> $||x|| = \sqrt(x_1^2+x_2^2+x_3^2$
+> $||x|| = \sqrt{x_1^2+x_2^2+x_3^2}$
 
 Očitno je da ustrezajo vsem pogojem, vendar je za $\mathbb{R}^2$ in $\mathbb{R}^3$ težje dokazati
 trikotniško neenakost. **Poglej si to!!!**
@@ -115,7 +115,7 @@ c) $\langle \lambda x + \mu y, z \rangle = \lambda \langle x,z \rangle + \lambda
 
 d) $\langle y,x \rangle = \langle x,y \rangle$
 
-Realen vektorski prostor skupaj s skalarnim produktom na njem imenujemo **realen unitaren vektorski prostor*.
+Realen vektorski prostor skupaj s skalarnim produktom na njem imenujemo **realen unitaren vektorski prostor**.
 Lastnost (c) se imenuje **linearnost v prvem faktorju**, lastnost (d) **simetričnost** (ki zagotavlja tudi
 linearnost v drugem faktorju) ter (a) in (b) **pozitivna definitnost**.
 
@@ -126,8 +126,14 @@ $$
 \langle x,y \rangle  = x_1 y_1 + x_2y_2 + x_3y_3
 $$
 
-Če je $X$ unitaren prostor, je s formulo $||x||: \sqrt(\langle x,x \rangle )$ definirana norma na $X$. Zdaj sta torej definirani
-zgornji funkciji norme na $\mathbb{R}^2$ in $\mathbb{R}^3$.
+Če je $X$ unitaren prostor, je s formulo $||x||: \sqrt{\langle x,x \rangle }$ definirana norma na $X$. Zdaj so definirane
+zgornje funkcije norme na $\mathbb{R}$, $\mathbb{R}^2$ in $\mathbb{R}^3$:
+
+> $||x|| = \sqrt{\langle x,x \rangle}$
+>
+> $||x|| = \sqrt{\langle x_1+x_2, x_1+x_2 \rangle}$
+>
+> $||x|| = \sqrt{\langle x_1+x_2+x_3, x_1+x_2+x_3 \rangle}$
 
 ## Cauchy-Schwarz-Bunjakovski neenačba
 
@@ -344,19 +350,389 @@ $\text{diam}A = sup \{ d(a,b) \ | a,b \in A \}$. Množica $A$ je omejena, če ve
 - $A = \emptyset$
 - $A < \infty$
 
-**to si poglej v zvezku ker vem da maš iz predavanja**
+Torej v kolikor množica $A$ ni prazna, je omejena takrat, ko je njen diameter $\text{diam}A$ manjši od $\infty$.
+Ta definicija velja tudi za *nepravo podmnožico* $M \subset M$. Namesto, da je prostor $M$ omejen, lahko
+rečemo, da je **njegova metrika omejena**, saj je zahteva $\text{diam}M<\infty$ identična z zahtevo po
+omejenosti realne funkcije $d$ na množici $M \times M$.
+
+> Po definiciji je $\text{diam}A = sup \{ d(a,b) \ | a,b \in A \}$, torej supremum oziroma najmanjšo zgornjo
+> mejo. To predstavlja največja možna razdalja znotraj $A$, kar je takrat, ko sta $a$ in $b$ čimbolj *oddaljena*,
+> vendar sta omejena z elementi množice $A$. Največja razdalja je, ko je eden izmed njiju najmanjši element $A$,
+> drugi pa največji možen. Torej je res funkcija $d$ omejena na množici $A \times A$.
+
+Velja, da so za poljubno podmnožico $A$ poljubnega metričnega prostora $M$ naslednje trditve ekvivalentne:
+
+a) $A$ je omejena
+b) za nek $x \in M$ in nek $r > 0$ je $A \subset \bar K_M(x,r)$
+c) za vsak $x \in M$ obstaja tak $r>0$, da je $A \subset K_M(x,r)$
+
+Rekli smo, da je $\bar K$ krogla z notranjostjo in robom oziroma zaprta krogla, medtem ko je $K$ krogla brez
+roba oziroma odprta krogla. Lasnost (b) pove torej, da je $A$ pomnožica neke zaprte krogle $\bar K(x,r)$, torej
+obstajata točno določena $x$ in $r$, za katera to velja.
+
+Po drugi strani govori lastnost (c) o tem, da ne glede na to kateri $x$ vzamemo, za vsakega obstaja nek $r$,
+tako da je $A$ zagotovo podmnožica odprte krogle $K(x,r)$.
+
+*Dokaz*:
+
+> (a) $\implies$ (c): izberemo nek $x\in M$ in $b\in A$ ter označimo $r = 1 + d(x,b) + \text{diam}A$. Za neko
+> poljubno točko $a\in A$ velja
+> $$
+\begin{aligned}
+d(x,a) &\leq d(x,b) + d(b,a) \quad \text{(trikotniška neenakost)} \\
+&\leq d(x,b) + \text{diam}A \\
+&< 1 + d(x,b) + \text{diam}A = r
+\end{aligned}
+> $$
+>
+> Torej je res $A \subset K_M(x,r) \quad \square$.
+>
+> (b) $\Rightarrow (a)$: naj bo $A \subset \bar K_M(x,r)$. Za neki točki $a,b \in A$ velja:
+> $$
+\begin{aligned}
+d(a,b) &\leq d(a,x) + d(x,b) \\
+&\leq 2r
+\end{aligned}
+> $$
+>
+> zato je $\text{A} \leq 2r$... **idk why**.
+>
+> (c) $\implies (b)$: očitno.
+
+$A$ je torej omejena z neko kroglo, bodisi zaprto ali odprto.
+
+## Podmnožice metričnih prostorov
+
+Naj bo $M$ nek metrični prostor in $A \subset M$ poljubna podmnožica. Točka $x\in M$ je za množico $A$:
+
+- **notranja**, če obstaja tak $r>0$, da je $K_r(x) \subseteq A$
+- **zunanja**, če obstaja tak $r>0$, da $K_r(x) \subseteq M-A = \overline A$
+- **robna**, če za vsak $r>0$ velja $K_r(x) \cap A \not = \emptyset$ in $K_r(x) \cap \overline{A} \not = \emptyset$
+
+Množico vseh notranjih točk množice $A$ imenujemo **notranjost** množice $A$ in jo označevali z $\text{Int}_M(A)$
+ali $\text{Int}_M A$. Množico vseh zunanjih točk množice $A$ imenujemo **zunanjost** množice $A$ in jo
+označevali z $\text{Ext}_M(A)$ ali $\text{Ext}_M A$. Množico vseh robnih točk množice $A$ imenujemo **rob**
+množice $A$ in jo označevali z $b(A)$.
+
+![podmnožice](files/skica-podmnožice.png)
+
+## Zveznost metričnih prostorov
+
+Naj bosta $(M,d)$ in $(M',d')$ metrična prostora. Preslikava $f:M \rightarrow M'$ je zvezna v točki
+$a \in M$, če za vsak $\epsilon > 0$ obstaja tak $\delta > 0$, da je
+
+$$
+d'(f(a), f(b)) < \epsilon \implies d'(a,x) < \delta
+$$
+
+Preslikava $f$ je **zvezna na $M$**, če je zvezna v vsaki točki $M$. Množico vseh takih preslikav
+označimo s $C(M,M')$.
+
+Če označimo $K = K_M$ in $K' = K_{M'}$, lahko pogoj za zveznost v točki $a$ opišemo tudi s pomočjo krogel.
+Za vsak $\epsilon>0$ mora obstajati tak $\delta > 0$, da za vsak $x\in K(a, \delta)$ leži $f(x)$ v
+$K'(f(a), \epsilon)$, oziroma $f(K(a,\delta)) \subset K'(f(a),\epsilon)$.
+
+### Enakomerna zveznost
+
+Zgornja preslikava $f$ je **enakomerno zvezna** na podprostoru $N \subset M$, če za vsak $\epsilon>0$ obstaja
+tak $\delta>0$, da je $d'(f(x),f(y))<\epsilon$ za vsak par točk $x,y\in N$, ki ustrezata pogoju
+$d(x,y)<\delta$.
+
+V primeru, da je preslikava enakomerno zvezna na vsem prostoru $M$, bomo rekli, da je enakomerno zvezna.
+
+## Lipschitzov pogoj za enakomerno zveznost
+
+Vsaka preslikava, ki zadošča Lipschitzovemu pogoju, je enakomerno zvezna. Lipschitzovemu pogoju ustreza,
+če obstaja tak $t \geq 0$, da za nek par točk $x,y \in M$ velja *ocena* $d'(f(x), f(y)) \leq t \cdot d(x,y)$.
+
+Pogoj za $t$ je ekvivalenten zahtevi, da je $t$ zgornja meja množice
+
+$$
+E = \{ \frac{d'(f(x),f(y))}{d(x,y)} \ | x,y \in M, x \not = y \}
+$$
+
+Preslikava je Lipschitzova preslikava natanko tedaj, ko je množica $E$ navzgor omejena. Najmanjše med števili
+$t$ oziroma $\text{sup}E$ bomo imenovali *raztezni koeficient preslikave $f$*.
+
+## Lastnosti zveznih preslikav
+
+Osnovni zgledi zveznih in enakomerno zveznih preslikav so zvezne in enakomerno zvezne realne funkcije
+ene spremenljivke. Vendar to ne velja nujno za preslikave na metrčnih prostorih.
+Naj bo $I \subset \mathbb{R}$ interval, ki ga vzamemo za definicijsko
+območje. Vsaka injektivna zvezna funkcija $f:I \rightarrow \mathbb{R}$ je
+
+- striktno monotona,
+- $I$ bijektivno preslika spet na nek interval $J \subset \mathbb{R}$,
+- njena inverzna funkcija $f^{-1}:J \rightarrow I$ je avtomatično zvezna (bijekcija).
+
+Za vsako zvezno bijektivno preslikavo metričnih prostorov ne velja, da je inverzna preslikava
+zvezna, kar ne velja tudi za navadne funkcije, če definicijsko območje ni interval.
+
+**Primer:** Funkcija $f: [-1,0) \cup [1,2] \rightarrow \mathbb{R}$ je definirana tako:
+
+$$
+f(x) = \begin{cases}
+x \ ; &x \in [-1,0) \\
+x-1 \ ; &x \in [1,2]
+\end{cases}
+$$
+
+$f$ je zvezna in preslika interval $[-1,0) \cup [1,2]$ bijektivno na interval $[-1,1]$.
+Inverzna funkcija $f^{-1}:[-1,1] \rightarrow [-1,0) \cup [1,2]$ pa ni zvezna v točki 0!
+
+---
+
+Naj bo $M$ nek metrični prostor. Če izberemo poljubno točko $a\in M$, lahko definiramo realno
+funkcijo na $M$ s predpisom $x \mapsto d(a,x)$. To funkcijo je smiselno označiti z $d(a, \ )$ ali
+$d(a,-)$, saj njeno vrednost v poljubni točki $x\in M$ dobimo tako, da $x$ postavimo na *prazno*
+mesto v predpisu.
+
+> > > Podobno kot označimo s $\sqrt{}$ funkcijo, katere vrednost pri nekem $x \geq 0$ dobimo tako,
+> > > da vstavimo $x$ pod znak $\sqrt{}$, torej $\sqrt{x}$.
+
+Za vsak $a\in M$ je funkcija $d(a,-):M \rightarrow \mathbb{R}$ enakomerno zvezna. Druga trikotniška
+neenakost, $| d(a,x) - d(a,y) | \leq d(x,y)$ (glej #Norma), nam pove, da je preslikava Lipschitzova.
+Prav tako je za nek normiran prostor $X$ norma $\lVert{ \ \rVert} = d(0, \ ): X \rightarrow \mathbb{R}$
+enakomerno zvezna funkcija na $X$.
+Funkcija $d(a,-)$ ima naravno posplošitev, to je **razdalja od dane podmnožice v** $M$.
+
+## Razdalja točke od množice
+
+Naj bo $M$ nek metrični prostor ter $A$ in $B$ neki njegovi neprazni podmnožici. *Razdalja točke $x\in M$
+od množice $A$* je definirana kot:
+
+$$
+d(x,A) = d(A,x) = \text{inf} \{ d(x,a) \ | a \in A \}
+$$
+
+*Razdalja množic $A$ in $B$* je definirana kot:
+
+$$
+\begin{aligned}
+d(A,B) &= \text{inf} \{ d(a,b) \ | \ a\in A, b\in B \} \\
+			 &= \text{inf} \{ d(a,B) \ | \ a\in A \} \\
+			 &= \text{inf} \{ d(A,b) \ | \ b\in B \}
+\end{aligned}
+$$
+
+Torej najmanjši možni razdalji med nekima točkama iz obeh množic.
+
+![razdalja-od-množice](files/skica-razdalja-od-množice.png)
+
+Za poljuben metrični prostor $M$ in poljubno neprazno podmnožico $A \subset M$ je funkcija
+$d(-, A) = d( \ , A): M \rightarrow \mathbb{R}$, definirana z $x \mapsto d(x,A)$, enakomerno
+zvezna na $M$.
+
+*Dokaz:* vzemimo neki točki $x,y \in M$. Za vsak $a\in A$ velja:
+
+$$
+\begin{aligned}
+d(x,A) &\leq d(x,a) \\
+       &\leq d(x,y) + d(y,a) \quad \text{(trikotniška neenakost)} \\
+d(x,a) - d(x,y) &\leq d(y,a)
+\end{aligned}
+$$
+
+Pomeni, da je $d(x,a) - d(x,y)$ spodnja meja za množico $\{ d(y,a) | a\in A \}$ in obratno velja tudi:
+
+$$
+\begin{aligned}
+&d(x,a) - d(x,y) \leq d(y,a) \\
+\implies &d(x,a) - d(y,a) \leq d(x,y)
+\end{aligned}
+$$
+
+Če zamenjamo vlogi točk $x$ in $y$, dobimo tudi:
+
+$$
+d(y,a) - d(x,a) \leq d(y,x)
+$$
+
+Obe neenačbi skupaj nam omogočata zapis:
+
+$$
+| d(x,a) - d(y,a) | \leq d(x,y)
+$$
+
+To pomeni, da funkcija $d(-,A)$ zadošča Lipschitzovemu pogoju, torej je enakomerno zvezna. $\quad \square$
+
+## Zaporedja v metričnih prostorih
+
+Splošna definicija konvergence točk na številski premici lahko posplošimo na zaporedja točk v metričnem prostoru.
+Zaporedje točk $a_1, a_2, \dots$ prostora $M$ konvergira k točki $a \in M$, če za vsak $\epsilon > 0$ obstaja
+tako naravno število $n_0$, da je vsak člen $a_n$ v zaporedju, pri katerem je $n \geq n_0$, oddaljen od $a$ za
+manj kot $\epsilon$.
+
+Bolj *uradno*: naj $\mathbb{N} = \{ 1,2,3, \dots \}$ označuje množico vseh naravnih števil. (Neskončno) zaporedje
+v množici $M$, ali zaporedje točk množice $M$, je neka preslikava $N \rightarrow M$. Vrednost funkcije
+$x: N \rightarrow M$ pri nekem naravnem številu $n$ označimo z $x_n$ (namesto z $x(n)$). Samo za zaporedje
+uporabimo namesto prejšnje *funkcijske* oznake eno izmed naslednjih:
+
+- $(x_1, x_2, \dots)$
+- $(x_n \ | \ n\in \mathbb{N})$
+- $(x_n)_{n\in \mathbb{N}}$ ali $(x_n)$
+
+Naj bo torej $(x_n)_{n\in \mathbb{N}}$ zaporedje točk metričnega prostora $M$. To zaporedje **konvergira** k
+točki $a\in M$, če za vsak $\epsilon > 0$ obstaja nek $n_0 \in \mathbb{N}$, da za vsak $n \geq n_0$ velja:
+
+$$
+d(a,x_n) < \epsilon \iff x_n \in K_M(a, \epsilon)
+$$
+
+Zaporedje ki konvergira h neki točki je konvergentno. Če $x_n$ konvergira k $a$, pravimo, da je $a$ **limita
+zaporedja** $(x_n)$ in pišemo:
+
+$$
+a = \lim x_n \iff a = \lim_{n \rightarrow \infty} x_n \iff x_n \rightarrow a
+$$
+
+Očitno je, da $(x_n)_{n \in \mathbb{N}}$ konvergira proti $a$ natanko tedaj, ko številsko zaporedje
+$(d(a,x_n))_{n\in \mathbb{N}}$ konvergira proti 0.
+
+> $a = \lim_{n \rightarrow \infty} x_n \implies 0 = \lim_{x_n \rightarrow a} d(a,x_n)$
+
+Tudi pojem limite lahko posplošimo na preslikave nad metričnimi prostori.
+
+## Limita funkcije v metričnem prostoru
+
+Naj bosta $M,N$ metrična prostora, $a\in M$ in $f$ preslikava iz $M$ v $N$. Točka $b\in N$ je **limita preslikave
+** $f$ pri $a$:
+
+$$
+b = \lim_{x \to a} f(x)
+$$
+
+če za vsak $\epsilon > 0$ obstaja tak $\delta > 0$, da je
+
+$$
+d(x,a) < \delta \Rightarrow d(f(x), b) < \epsilon \ ; \ \forall x\in M - \{ a \}
+$$
+
+Preden nadaljujem, je tu še definicija okolice.
+
+---
+
+## Okolica točke v metričnem prostoru
+
+Naj bo $M$ metrični prostor in $a\in M$. **Okolica** točke $a$ v prostoru $M$ je vsaka množica $U \subset M$, ki
+vsebuje kako kroglo $K_M(a,r)$ v $M$ s središčem v $a$.
+
+Vsaka krogla $K_M(a,r)$ (ali $\bar K_M(a,r)$) je torej že okolica točke $a$. Vsaka množica v $M$, ki tudi
+vsebuje kako okolico točke $a$, je tudi sama okolica točke $a$.
+
+Naj bosta $M$ in $N$ metrična prostora ter $a\in M$ in $f:M \rightarrow N$ neka preslikava. Naslednje trditve
+so ekvivalentne:
+
+a) Preslikava $f$ je zvezna v točki $a$.
+b) Za vsako okolico $V$ točke $f(a)\in N$ obstaja taka okolica $U$ točke $a\in M$, da velja $f(U) = M$.
+c) Za vsako okolico $V$ točke $f(a)$ je praslika $f^{-1}(V)$ okočica točke $a$.
+
+---
+
+Zaporedje $(x_n)_{n\in \mathbb{N}}$ v metričnem prostoru $M$ konvergira k točki $a\in M$ natanko tedaj, ko za
+vsako okolico $U$ od točke $a$ obstaja tak $n_0\in \mathbb{N}$, da je $x_n \in U$ za vsak $n \geq n_0$.
+
+Vsako zaporedje v poljubnem metričnem prostoru ima kvečjemu **eno limito**. Če bi imelo neko zaporedje $(x_n)$ v
+metričnem prostoru $M$ dve različni limiti $a,b\in M$, bi za pozitivno število $\epsilon = d(a,b)$ morali
+najti tak $n_0\in \mathbb{N}$, da bi bili za vsak $n \geq n_0$ izpolnjeni neenačbi
+
+$$
+d(a,x_n) < \frac{\epsilon}{2} \quad \text{in} \quad d(b,x_n) < \frac{\epsilon}{2}
+$$
+
+Od tod dobimo protislovno neenačbo
+
+$$
+\epsilon = d(a,b)
+				 \leq d(a,x_n) + d(x_n, b)
+				 < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon \quad \square
+$$
+
+Naj bosta $N,M$ poljubna metrična prostora. preslikava $f:M \rightarrow N$ je zvezna v točki $a\in M$
+natanko tedaj, ko za vsako zaporedje $(x_n)_{n\in \mathbb{N}}$ v $M$ z limito $a$ konvergira
+zaporedje $(f(x_n))_{n\in \mathbb{N}}$ proti $f(a)$.
+
+> *Dokaz:* naj bo preslikava $f$ zvezna v točki $a$ in naj vanjo konvergira zaporedje $(x_n)_{n\in \mathbb{N}}$
+> v $M$. Vzamimo poljubno okolico $V \subset N$ od točke $f(a)$. Po definiciji velja, da je $f(U) \subset V$.
+> Ker je $a = \lim x_n$, lahko najdemo tak $n_0\in \mathbb{N}$, da je $x_n \in U$ za vsak $n \geq n_0$.
+> Za vsak tak $n$ je potem $f(x_n)\in U \subset V$, kar implicira $f(a) = lim f(x_n)$. $\quad \square$
+
+Posledično, če je $X$ nek normiran prostor nad poljem skalarjev $\mathbb{F=R \land C}$ in sta
+$(x_n)_{n\in \mathbb{N}}$ in $(y_n)_{n\in \mathbb{N}}$ neki konvergentni zaporedji v $X$ ter
+$(\lambda_n)_{n\in \mathbb{N}}$ neko konvergetno zaporedje v $F$, potem sta konvergetni tudi zaporedji:
+
+$$
+(x_n + y_n)_{n\in \mathbb{N}} \quad \text{in} \quad (\lambda_n \cdot x_n)_{n\in \mathbb{N}}
+$$
+
+in velja:
+
+$$
+\begin{aligned}
+\lim (x_n + y_n)_{n\in \mathbb{N}} = (\lim x_n) + (\lim y_n) \\ \\
+\lim (\lambda_n \cdot x_n)_{n\in \mathbb{N}} = (\lim \lambda_n) \cdot (\lim x_n)
+\end{aligned}
+$$
+
+---
+
+Naj bosta $M'$ in $M''$ neka metrična prostora. Zaporedje $(x_n = x_n', x_n'')_{n\in \mathbb{N}}$ v
+$M = M' \times M''$ konvergira k točki $a = (a', a'')\in M$ natanko tedaj, ko velja:
+
+$$
+\begin{aligned}
+a' &= \lim x_n' \in M' \\
+a'' &= \lim x_n'' \in M''
+\end{aligned}
+$$
+
+*Dokaz:*
+
+$$
+\begin{aligned}
+a = \lim x_n &\iff 0 = \lim d(a, x_n) \\
+&\iff 0 = \lim \left( \text{max} \{ d(a',x_n'), d(a'', x_n'') \} \right) \\
+&\iff 0 = \lim d(a', x_n') \quad \land \quad 0 = \lim d(a'', x_n'') \\
+&\iff a' = \lim x_n' \quad \and \quad a'' = \lim x_n'' \quad \square
+\end{aligned}
+$$
+
+---
+
+*Dokaz:* naj bo $\lim x_n = a$ in $\lim y_n = b$. Po zgornjem dokazu sledi $\lim (x_n, y_n) = \left( a,b \right)$
+v $X \times X$. Ker je seštevanje zvezna preslikava iz $X\times X$ v $X$, sledi $\lim(x_n + y_n) = a+b$.
+Podobno dokažemo ostali dve trditvi.
+
+## Podzaporedje
+
+Naj bo $(x_1, x_2, \dots)$ zaporedje elementov neke množice $M$. **Podzaporedje** tega zaporedja je vsako
+zaporedje oblike $x_{n_1}, x_{n_2}, \dots$, kjer je $(n_1, n_2, \dots)$ strogo naraščujoče zaporedje
+naravnih števil.
+
+Ker je zaporedje v metričnih prostorih neka funkcija $N \rightarrow M$, definiramo podzaporedje zaporedja kot
+$x:N \rightarrow M$ je kompozitum $x \circ n: N \rightarrow M$, kjer je $n:N \rightarrow N$ neka strogo
+naraščujoča funkcija.
+
+> Da dobimo to podzaporedje, moramo za $n$ vzeti funkcijo, ki ima pri 1 vrednost $n_1$, 2 vrednost $n_2$, ...
+
+Če ima zaporedje $(x_n)_{n \in \mathbb{N}}$ v metričnem prostoru limito $a$, tudi vsako njegovo podzaporedje
+konvergira v $a$.
+
+## Stekališče zaporedja
+
+Naj bo $(x_n)_{n \in \mathbb{N}}$ zaporedje v metričnem prostoru $M$. Točka $a\in M$ je **stekališče tega
+zaporedja**, če vsaka okolica te točke vsebuje neskončno členov tega zaporedja (če je za vsak $\epsilon>0$
+izpolnjena neenačba $d(a,x_n) < \epsilon$ pri neskončno mnogo $n\in \mathbb{N}$).
+
+Zaporedje mora imeti več stekališč (tudi neskončno mnogo). Če je zaporedje $x_n$ konvergetno, je $\lim x_n$
+njegovo **edino stekališče**. Točka $s\in M$ pa je stekališče zaporedja $x_n$ natanko tedaj, ko neko
+njegovo podzaporedje konvergira proti $s$.
 
 ## Odprte in zaprte množice
 
 ## Kompaktnost in povezanost
 
-## Zaporedja v metričnih prostorih
-
 ## Cauchy-jeva zaporedja in polni prostori
-
-## Zveznost in enakomerna zveznost
-
-## Lastnosti zveznih preslikav
 
 # Funkcije več realnih spremenljivk
 
