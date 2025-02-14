@@ -1,0 +1,2 @@
+## Kompaktnost in povezanost
+

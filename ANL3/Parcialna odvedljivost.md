@@ -1,0 +1,2 @@
+## Parcialna odvedljivost
+
