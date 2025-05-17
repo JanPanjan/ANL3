@@ -1,2 +1,0 @@
-# Višji parcialni odvodi
-

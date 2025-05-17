@@ -1,2 +1,0 @@
-## Pogoj za eskistenco
-

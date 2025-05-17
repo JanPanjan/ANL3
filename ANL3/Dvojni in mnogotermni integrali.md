@@ -1,2 +1,0 @@
-# Dvojni in mnogotermni integrali
-

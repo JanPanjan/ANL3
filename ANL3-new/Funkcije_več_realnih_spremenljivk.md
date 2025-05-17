@@ -1,2 +1,0 @@
-# Funkcije več realnih spremenljivk
-

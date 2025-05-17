@@ -1,2 +1,0 @@
-## Prosi in vezani ekstremi
-

@@ -1,2 +1,0 @@
-## Uvedba novih spremenljivk
-
