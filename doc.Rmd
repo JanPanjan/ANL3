@@ -314,7 +314,7 @@ To normo in metriko imenujemo *običajna* v prostoru $\mathbb{R}^1$ (na premici)
 
 ### Maksimum (kubična) metrika
 
-Za vsak $n\in \mathbb{N}$ naj bosta norma in metrika poljubnih vektorjev (ali točk) $x = (x_1, x_2, \dots, x_n)$ in 
+Za vsak $n\in \mathbb{N}$ naj bosta norma in metrika poljubnih vektorjev (ali točk) $x = (x_1, x_2, \dots, x_n)$ in
 $y = (y_1, y_2, \dots, y_n)$ iz $\mathbb{R}^n$ definirani z:
 
 $$
@@ -339,7 +339,7 @@ $$
 
 Ne ustreza paralelogramski identiteti, zato ne izhaja iz skalarnega produkta. V prostoru $\mathbb{R}$ se ujema z
 običajno metriko, v $\mathbb{R}^2$ je geometrično podobna diamantu, za $\mathbb{R}^3$ pa oktaedru, zato metriko
-in normo imenujemo *oktaedrska*. Pogosto jo označimo s simbolom $\lVert{ \ \rVert}_1$. 
+in normo imenujemo *oktaedrska*. Pogosto jo označimo s simbolom $\lVert{ \ \rVert}_1$.
 
 Za $\mathbb{R}^2$ ima nazorno interpretacijo: v mestu v katerem sta vsaki dve ulici vzporedni ali pravokotni,
 je sferična razdalja med dvema točkama enaka razdalji v zračni črti (ki je razmeroma nezanimiva). "Pravo" oziroma
@@ -591,7 +591,7 @@ Stekališče množice je nasprotje izolirane točke.
 ## Izolirane točke
 
 Točka $a$ je izolirana točka množice $A\subset M$ tedaj in le tedaj, ko je $\{ a \}$ odprta podmnožica
-metričnega prostora $A$. 
+metričnega prostora $A$.
 
 Ekvivalentno, točka $a$ je izolirana točka množice $A\subset M$, če ima v $M$ tako okolico $U$, da je $U \cap A = \{ a \}$.
 To pomeni v smislu odprte krogle (verjetno) za nek $r>0$ $K(a,r) \cap A = {a}$, torej da je samo ona sama del
@@ -937,14 +937,14 @@ Vsako konvergetno zaporedje je Cauchyjevo.
 > *Dokaz:* naj bo $(x_n)_{n\in \mathbb{N}}$ konvergetno zaporedje in naj bo $\epsilon>0$. Če je $a = \lim x_n$,
 > potem obstaja tak $n_0\in \mathbb{N}$, da je $d(a,x_n) < \epsilon/2$ za vsak $n \geq n_0$. Za neka $m,n\geq n_0$
 > je potem:
-> 
+>
 > $$
 > d(x_m, x_n) \leq d(x_m, a) + d(a, x_n) < \epsilon \quad \square
 > $$
 
 Vsako Cauchyjevo zaporedje ni nujno konvergentno (v metričnih prostorih).
 
-> *Primer:* množica $\mathbb{R}- \{ 0 \}$ z običajno metriko ima zaporedje $(1/n)_{n\in \mathbb{N}}$, ki je 
+> *Primer:* množica $\mathbb{R}- \{ 0 \}$ z običajno metriko ima zaporedje $(1/n)_{n\in \mathbb{N}}$, ki je
 > Cauchyjevo (prva trditev), saj je konvergetno v množici $\mathbb{R}$, vendar ni konvergetno v $\mathbb{R} - \{ 0 \}$, ker
 > nobena točka v tej množici ni njegova limita.
 
@@ -957,19 +957,19 @@ vsak metrični prostor v katerem je vsaka omejena množica *relativno* kompaktna
 > To zaporedje je omejeno, saj po Cauchyjevem pogoju obstaja tak $k\in \mathbb{N}$, da je $d(a_m,a_n)\leq 1$ za
 > vsak par $m,n\geq k$. Naj bo $D$ največje od števil $d(a_m,a_n)$ za $m,n\leq k$. Če je $m\leq k$ in $n \geq k$,
 > velja:
-> 
+>
 > $$
 > d(a_m,a_n) \leq d(a_m,a_k) + d(a_k,a_n) \leq D + 1
 > $$
-> 
+>
 > Množica $A = \{ a_n \ ; \ n\in \mathbb{N} \}$ ima torej premer $\leq D+1$. Velja tudi, da je množica $A$ relativno
 > kompaktna, torej ima njeno zaporedje $(a_n)$ vsaj eno stekališče $s\in M$. Dokazati moramo samo še, da je
 > $s = \lim a_n$.
-> 
+>
 > Naj $\exists \epsilon>0$. Po Cauchyjevem pogoju obstaja tak $n_0\in \mathbb{N}$, da velja $d(a_m,a_n)<\epsilon/2$ za
 > neka $m,n\geq n_0$. Ker je $s$ stekališče, je $d(s,a_m)<\epsilon/2$ vsaj za en $m\geq n_0$. To pomeni, da je potem
 > za vsak $n\geq n_0$ potem:
-> 
+>
 > $$
 > d(s,a_n) \leq d(s,a_m) + d(a_m, a_n) < \epsilon \quad \square
 > $$
