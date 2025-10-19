@@ -1,0 +1,1 @@
+Naj bosta $\lNorm . \rNorm$ in $$
